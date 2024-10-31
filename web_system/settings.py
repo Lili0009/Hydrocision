@@ -24,9 +24,9 @@ SECRET_KEY = 'django-insecure-u3ckdn3om^e)m(c&&mbz*(=kj@5ph+k_qs2a7s-senb)h&f*=a
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['decision-support.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hydrocision.onrender.com', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    "https://decision-support.onrender.com"
+    "https://hydrocision.onrender.com"
 ]
 
 
