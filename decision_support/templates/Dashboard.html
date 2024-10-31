@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+    <title>{% block title %}Dashboard{% endblock %}</title>
+
+    {% block css_page %}
+    <link rel="stylesheet" href="{% static 'css/Dashboard.css' %}" media="screen">
+    {% endblock %}
+
+{% block content %}
+    <style>
+      rect.mpld3-axesbg {
+          fill: none !important; 
+      }
+      .plot-container {
+          margin: 1px; 
+          padding: 1px;
+          top: 10px; 
+          left: 20px;
+          width: 550px;
+      }
+      .alloc-container {
+          margin: 1px; 
+          padding: 1px;
+          top: 70px; 
+          left: 20px;
+
+      }
+</style>
+    
+
+    <section class="u-clearfix u-custom-color-1 u-section-1" id="sec-a5ce">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-custom-color-6 u-group u-radius u-shape-round u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-align-center u-text u-text-1">{{ min_water_level | floatformat:2 }} m</p>
+            <p class="u-align-center u-custom-font u-text u-text-2">Lowest Water Level</p>
+            <p class="u-align-center u-custom-font u-heading-font u-text u-text-3">{{ min_water_level_date }}</p>
+          </div>
+        </div>
+        <div class="u-container-style u-group u-radius u-shape-round u-white u-group-2">
+          <div class="u-container-layout u-container-layout-2"></div>
+        </div>
+        <img class="u-image u-image-contain u-image-default u-image-1" src="{% static 'img/lowest.png' %}" alt="" data-image-width="577" data-image-height="433">
+        <div class="u-container-style u-custom-color-6 u-group u-radius u-shape-round u-group-3">
+          <div class="u-container-layout u-container-layout-3">
+            <div class="u-container-style u-expanded-width u-group u-radius u-shape-round u-white u-group-4">
+              <div class="u-container-layout u-container-layout-4">
+                <img class="u-image u-image-contain u-image-default u-image-2" src="{% static 'img/water_drop.png' %}" alt="" data-image-width="577" data-image-height="433">
+              </div>
+            </div>
+            <p class="u-align-center u-text u-text-4">{{ last_year_today | floatformat:2 }} m</p>
+            <p class="u-align-center u-custom-font u-text u-text-5">Last Year's Water Level</p>
+            <p class="u-align-center u-custom-font u-heading-font u-text u-text-6">{{ date_last_year }}</p>
+          </div>
+        </div>
+        <div class="u-custom-color-6 u-radius u-shape u-shape-round u-shape-1"></div>
+        <div class="u-align-center u-container-style u-group u-radius u-shape-round u-white u-group-5">
+          <div class="u-container-layout u-valign-middle u-container-layout-5">
+            <h4 class="u-custom-font u-text u-text-7">FORECASTED WATER LEVEL</h4>
+          </div>
+        </div>
+        <!-- <img class="u-image u-image-contain u-image-default u-image-3" src="{% static 'img/water_level_dashboard.png' %}" alt="" data-image-width="872" data-image-height="571"> -->
+        <div class="plot-container">
+          {{ plot|safe }}
+       </div>
+       <div class="u-align-center u-container-style u-custom-color-6 u-group u-radius u-shape-round u-group-6">
+          <div class="u-container-layout u-container-layout-6">
+            <p class="u-text u-text-8">{{ Tomorrow | floatformat:2 }} m</p>
+            <img class="u-image u-image-contain u-image-default u-image-4" src="{% static 'img/eval_water_drop.png' %}" alt="" data-image-width="200" data-image-height="299">
+            <p class="u-text u-text-white u-text-9">{{Today | floatformat:2}}&nbsp;<br>
+            </p>
+            <p class="u-text u-text-10">{{ Yesterday | floatformat:2 }} m</p>
+            <p class="u-heading-font u-text u-text-11">{{ date_tom }} </p>
+            <p class="u-heading-font u-text u-text-12">{{ date_today }}</p>
+            <p class="u-custom-font u-text u-text-13">TODAY'S WATER LEVEL </p>
+            <p class="u-heading-font u-text u-text-14">{{ date_yest }} </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-custom-color-1 u-section-2" id="sec-8aea">
+      <div class="u-clearfix u-sheet u-sheet-1">
+       <!-- <img class="u-image u-image-contain u-image-default u-image-1" src="{% static 'img/water_alloc.png' %}" alt="" data-image-width="1500" data-image-height="600"> -->
+       <div class="alloc-container">
+        {{ water_alloc_plot|safe }}
+     </div>
+     <h3 class="u-custom-font u-font-lato u-text u-text-default u-text-1">Water Allocation </h3>
+        <div class="u-border-3 u-border-custom-color-5 u-line u-line-horizontal u-opacity u-opacity-65 u-line-1"></div>
+      </div>
+    </section>
+
+    
+{% endblock %}

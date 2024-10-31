@@ -1,0 +1,14 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+    {{ block.super }}
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var viewSiteLink = document.querySelector("a[href='/']");
+            if (viewSiteLink) {
+                viewSiteLink.href = "/dashboard/";  
+                viewSiteLink.textContent = "Hydrocision Website";  
+            }
+        });
+    </script>
+{% endblock %}
