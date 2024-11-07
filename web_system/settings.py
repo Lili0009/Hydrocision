@@ -153,15 +153,13 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('redis://:Hydrorcision%40123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
+                (os.environ.get('redis://default:Hyrdorcision123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
             ],
         },
     },
 }
-
-CELERY_BROKER_URL = 'redis://:Hydrorcision%40123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
-CELERY_RESULT_BACKEND = 'redis://:Hydrorcision%40123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
-
+CELERY_BROKER_URL = 'redis://default:Hyrdorcision123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
+CELERY_RESULT_BACKEND = 'redis://default:Hyrdorcision123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
