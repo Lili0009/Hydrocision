@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 django = "*"
-celery = "*"
+celery = { version = "*", extras = ["redis"] }
 daphne = "*"
 django_celery_beat = "*"
 django_celery_results = "*"
