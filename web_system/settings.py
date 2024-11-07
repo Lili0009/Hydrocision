@@ -34,7 +34,6 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
     'decision_support',
     'django_celery_results',
     'django_celery_beat',
@@ -47,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'daphne',
 ]
 
 MIDDLEWARE = [
@@ -153,14 +154,14 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
+                (os.environ.get('redis://:Hydrorcision@123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
             ],
         },
     },
 }
 
-CELERY_BROKER_URL = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
-CELERY_RESULT_BACKEND = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
+CELERY_BROKER_URL = 'redis://:Hydrorcision@123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
+CELERY_RESULT_BACKEND = 'redis://:Hydrorcision@123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
