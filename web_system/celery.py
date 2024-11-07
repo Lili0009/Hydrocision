@@ -14,7 +14,7 @@ app.conf.enable_utc = False
 app.conf.update(timezone='Asia/Manila')
 
 app.config_from_object(settings, namespace='CELERY')
-
+app.conf.broker_url = settings.CELERY_broker_url
 app.conf.beat_schedule = {
 }
 
