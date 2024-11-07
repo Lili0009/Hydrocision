@@ -153,14 +153,14 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('REDISCLOUD_URL', 'redis://localhost:6379')) 
+                (os.environ.get('REDISCLOUD_URL')) 
             ],
         },
     },
 }
 
 # CELERY SETTINGS
-CELERY_broker_url = os.environ.get('REDISCLOUD_URL', 'redis://localhost:6379')
+CELERY_broker_url = os.environ.get('REDISCLOUD_URL')
 result_backend = 'django-db'
 accept_content = ['application/json']
 result_serializer = 'json'
