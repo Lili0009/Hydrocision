@@ -110,6 +110,9 @@
         + roomName
         + '/'
     );
+    notificationSocket.onopen = function(e) {
+    console.log('WebSocket connection opened successfully');
+    };
 
     notificationSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
