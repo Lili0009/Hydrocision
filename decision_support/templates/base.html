@@ -117,9 +117,9 @@
     notificationSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
         
-        console.log(data);
-        document.getElementById("notifications-dropdown").innerHTML = "<span class = 'dropdown-item-date'>just now</span><br>" + "<span class='dropdown-item-msg'>" + data + "</li><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+        console.log('Received: {data}');
         document.getElementById("notification-badge").innerHTML = parseInt(document.getElementById("notification-badge").innerHTML) + 1;
+        document.getElementById("notifications-dropdown").innerHTML = "<span class = 'dropdown-item-date'>just now</span><br>" + "<span class='dropdown-item-msg'>" + data + "</li><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
     };
 
     notificationSocket.onclose = function(e) {

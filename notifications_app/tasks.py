@@ -12,6 +12,7 @@ def broadcast_notification(self, data):
         notification = BroadcastNotification.objects.filter(id=int(data)).first()
 
         if notification:
+            print(f"Sending notification: {notification.message}")
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
                 "notification_broadcast",  

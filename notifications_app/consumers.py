@@ -36,7 +36,7 @@ class NotificationConsumer(AsyncWebsocketConsumer):
     # Handle notification message from group_send (from Celery task)
     async def send_notification(self, event):
         message = event['message']
-
+        print(f"Sent message to WebSocket: {message}")  # Debug log 
         # Send message to WebSocket client
         await self.send(text_data=json.dumps({
             'message': message
