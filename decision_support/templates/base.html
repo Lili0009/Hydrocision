@@ -113,35 +113,23 @@
 
     notificationSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
-
-        // Check the structure of the data and render the notification accordingly
-        console.log(data);  // Log the received data to inspect its structure
         
-        // Assuming the structure is { "message": "New notification", "timestamp": "just now" }
-        if (data && data.message) {
-            // Construct the HTML for the new notification
-            const notificationHTML = "<li class='dropdown-item'><span class='dropdown-item-date'>just now</span><br>" +
-                                     "<span class='dropdown-item-msg'>" + data.message + "</span></li><hr class='dropdown-divider'>";
-            
-            // Prepend the new notification to the existing dropdown menu
-            document.getElementById("notifications-dropdown").innerHTML = notificationHTML + document.getElementById("notifications-dropdown").innerHTML;
-
-            // Update the notification badge count
-            const badge = document.getElementById("notification-badge");
-            badge.innerHTML = parseInt(badge.innerHTML) + 1;
-        }
+        console.log(data);
+        document.getElementById("notifications-dropdown").innerHTML = "<span class = 'dropdown-item-date'>just now</span><br>" + "<span class='dropdown-item-msg'>" + data + "</li><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+        document.getElementById("notification-badge").innerHTML = parseInt(document.getElementById("notification-badge").innerHTML) + 1;
     };
 
     notificationSocket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
     };
 
-    // Reset the notification badge to 0 when the dropdown is clicked
     document.getElementById('navbarDropdown').addEventListener('click', function() {
-        document.getElementById("notification-badge").innerHTML = '0';
-    });
-</script>
+    document.getElementById("notification-badge").innerHTML = '0';
+});
 
+
+   
+</script>
 
 
 <script>
