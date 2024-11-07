@@ -11,6 +11,7 @@ class NotificationConsumer(AsyncWebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
+        print(f"WebSocket connected, joining group: {self.room_group_name}")
 
         await self.accept()
 

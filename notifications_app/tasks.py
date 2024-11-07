@@ -22,7 +22,7 @@ def broadcast_notification(self, data):
             )
             notification.sent = True
             notification.save()
-
+            print(f"Sending notification to group: notification_broadcast with message: {notification.message}")
             return 'Notification sent successfully'
 
         else:
