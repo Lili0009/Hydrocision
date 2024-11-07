@@ -153,7 +153,7 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('redis://default:Hyrdorcision123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
+                (os.environ.get('REDIS_URL', 'redis://default:Hyrdorcision123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
             ],
         },
     },
