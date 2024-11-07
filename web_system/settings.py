@@ -153,15 +153,15 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('REDISCLOUD_URL')) 
+                (os.environ.get('redis://default:Hyrdorcision%40123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
             ],
         },
     },
 }
 
 # CELERY SETTINGS
-CELERY_broker_url = os.environ.get('REDISCLOUD_URL')
-result_backend = os.environ.get('REDISCLOUD_URL')
+CELERY_broker_url = os.environ.get('redis://default:Hyrdorcision%40123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')
+result_backend = os.environ.get('redis://default:Hyrdorcision%40123@redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')
 accept_content = ['application/json']
 result_serializer = 'json'
 task_serializer = 'json' 
