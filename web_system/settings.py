@@ -159,13 +159,11 @@ CHANNEL_LAYERS = {
     },
 }
 
-
-# CELERY SETTINGS
-CELERY_broker_url = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
-result_backend = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
-accept_content = ['application/json']
-result_serializer = 'json'
-task_serializer = 'json' 
-timezone = 'Asia/Manila'
+CELERY_BROKER_URL = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
+CELERY_RESULT_BACKEND = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Manila'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-broker_connection_retry_on_startup = True
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
