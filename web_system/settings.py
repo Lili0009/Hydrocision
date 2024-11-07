@@ -153,7 +153,7 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('REDIS_URL', 'redis://localhost:6379/0'))  # Use the correct environment variable
+                (os.environ.get('redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0')) 
             ],
         },
     },
@@ -161,8 +161,8 @@ CHANNEL_LAYERS = {
 
 
 # CELERY SETTINGS
-CELERY_broker_url = os.getenv('REDIS_URL', 'redis://localhost:6379/0')  
-result_backend = os.getenv('REDIS_URL', 'redis://localhost:6379/0') 
+CELERY_broker_url = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
+result_backend = 'redis://redis-12795.c309.us-east-2-1.ec2.redns.redis-cloud.com:12795/0'
 accept_content = ['application/json']
 result_serializer = 'json'
 task_serializer = 'json' 
