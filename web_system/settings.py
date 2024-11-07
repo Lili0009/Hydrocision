@@ -161,7 +161,7 @@ CHANNEL_LAYERS = {
 
 # CELERY SETTINGS
 CELERY_broker_url = os.environ.get('REDISCLOUD_URL')
-result_backend = 'django-db'
+result_backend = os.environ.get('REDISCLOUD_URL')
 accept_content = ['application/json']
 result_serializer = 'json'
 task_serializer = 'json' 
