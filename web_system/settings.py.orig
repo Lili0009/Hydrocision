@@ -153,18 +153,18 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [
-                (os.environ.get('REDISCLOUD_URL')) 
+                (os.environ.get('REDIS_URL', 'redis://localhost:6379/0'))  # Use the correct environment variable
             ],
         },
     },
 }
 
+
 # CELERY SETTINGS
-CELERY_BROKER_URL = os.environ.get('REDISCLOUD_URL')
-CELERY_RESULT_BACKEND = 'django-db'
+CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')  
+CELERY_RESULT_BACKEND = os.getenv('REDIS_URL', 'redis://localhost:6379/0') 
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json' 
 CELERY_TIMEZONE = 'Asia/Manila'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-broker_connection_retry_on_startup = True
