@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from decision_support.views import trigger_notification
 from django.contrib import admin
 from django.shortcuts import redirect
 from django.http import HttpResponse
@@ -17,4 +18,6 @@ urlpatterns = [
     path('img_map/', views.Ae, name='img_map'),
     path('get-current-datetime/', views.Af, name='get_current_datetime'),
     path('health/', lambda request: HttpResponse('OK', status=200), name='health_check'),  
+    path('trigger-notification/', trigger_notification, name='trigger_notification'),
+
 ]

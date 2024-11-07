@@ -71,7 +71,13 @@ from django.http import JsonResponse as w
 from django.templatetags.static import static
 from django.utils import timezone as AO
 from django.contrib.auth.decorators import login_required
+from notifications_app.tasks import broadcast_notification
+from django.http import JsonResponse
 
+def trigger_notification(request):
+    # Call the Celery task directly
+    broadcast_notification.apply(args=('Test notification',))
+    return JsonResponse({'status': 'Notification sent!'})
 
 def AT():
 	global r,L,P,Q,r,AE,s;global x,m,AF,t,AZ,AU;x=AC('Model_water.h5');A=B.read_csv(AH);A[g]=B.to_numeric(A[g],errors=AI);D=d(e(A)*.8);G=A.iloc[:D];R=G[H].mean();S=G[O].mean();P=A.fillna(value={H:R,g:0,O:S}).copy();P[C]=B.to_datetime(P[C],format=U);P.set_index(C,inplace=E);m=AY(feature_range=(0,1));I=m.fit_transform(P)
